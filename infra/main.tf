@@ -102,3 +102,7 @@ resource "aws_api_gateway_deployment" "lms_deployment" {
   ]
 }
 
+# Output the API Gateway endpoint URL
+output "api_gateway_url" {
+  value = "${aws_api_gateway_deployment.lms_deployment.invoke_url}/${aws_api_gateway_resource.lms_resource.path_part}"
+}
